@@ -7,11 +7,16 @@
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },
+  "license": "MIT",
   "main": "index.ts",
   "scripts": {
     "build": "webpack",
-    "start": "node ./build/bundleru.js",
+    "start:node": "node ./build/bundleru.js",
+    "start:browser": "webpack-dev-server",
     "test": "echo \"No Tests specified\" && exit 1"
   },
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "webpack-dev-server": "^3.1.9"
+  }
 }
