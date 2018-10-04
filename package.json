@@ -1,0 +1,20 @@
+{
+  "author": "Omniphase",
+  "description": "Composable HTTP Client",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "typescript": "^3.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "license": "MIT",
+  "main": "index.ts",
+  "scripts": {
+    "build": "webpack",
+    "start:node": "node ./build/bundleru.js",
+    "start:browser": "webpack-dev-server",
+    "test": "echo \"No Tests specified\" && exit 1"
+  },
+  "version": "0.0.1"
+}
