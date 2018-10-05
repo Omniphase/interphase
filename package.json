@@ -2,6 +2,8 @@
   "author": "Omniphase",
   "description": "Composable HTTP Client",
   "devDependencies": {
+    "@types/jest": "^23.3.3",
+    "@types/jsdom": "^11.12.0",
     "awesome-typescript-loader": "^5.2.1",
     "jest": "23.6.0",
     "ts-jest": "23.10.3",
@@ -19,9 +21,5 @@
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
-  "version": "0.0.1",
-  "dependencies": {
-    "@types/jest": "^23.3.3",
-    "@types/jsdom": "^11.12.0"
-  }
+  "version": "0.0.1"
 }
