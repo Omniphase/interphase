@@ -1,5 +1,5 @@
 
-class HttpClient extends Client {
+class HttpClient implements Client {
   delete(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any> {
 
   }
@@ -17,5 +17,6 @@ class HttpClient extends Client {
   put(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any> {
 
   }
-
 }
+
+export default HttpClient;
