@@ -11,7 +11,7 @@ module.exports = {
     filename: 'bundleru.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.js']
   },
   module: {
     rules: [
