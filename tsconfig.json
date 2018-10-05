@@ -3,8 +3,6 @@
     "useCache": true,
   },
   "compilerOptions": {
-    "allowJs": true,
-    "jsx": "react",
     "noImplicitAny": true,
     "outDir": "./build/",
     "removeComments": true,
