@@ -2,7 +2,11 @@
   "author": "Omniphase",
   "description": "Composable HTTP Client",
   "devDependencies": {
+    "@types/jest": "^23.3.3",
+    "@types/jsdom": "^11.12.0",
     "awesome-typescript-loader": "^5.2.1",
+    "jest": "23.6.0",
+    "ts-jest": "23.10.3",
     "typescript": "^3.1.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
@@ -14,7 +18,8 @@
     "build": "webpack",
     "start:node": "node ./build/bundleru.js",
     "start:browser": "webpack-dev-server",
-    "test": "echo \"No Tests specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "version": "0.0.1"
 }
