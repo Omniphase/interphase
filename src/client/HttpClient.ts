@@ -1,20 +1,36 @@
+import ClientResponse from './ClientResponse';
 
 class HttpClient implements Client {
-  delete(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any> {
+
+  delete(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse {
 
   }
-  get(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any> {
+  get(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse {
+    const endpoint: Endpoint = getEndpointFromPathname(pathName);
+    const path: string = endpoint.path;
+    const options = parseOptions({
+      ...endpoint.requestOptions,
+      ...requestOptions,
+    });
+
+    const clientResponse: ClientResponse = new ClientResponse();
+
+    clientResponse.fetch(path, {
+      ...options,
+      method: HttpVerbs.GET,
+    });
+
+    return clientResponse;
+  }
+  patch(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse {
 
   }
-  patch(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any> {
+
+  post(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse {
 
   }
 
-  post(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any> {
-
-  }
-
-  put(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any> {
+  put(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse {
 
   }
 }

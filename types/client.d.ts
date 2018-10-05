@@ -1,21 +1,22 @@
 interface Client {
-	delete(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
-	get(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
-	patch(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
-	post(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
-	put(path: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
+	delete(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
+	get(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
+	patch(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
+	post(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
+	put(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
 }
 
-interface RequestData{
+interface RequestData {
 	data: any;
 	param: any;
 	path: any;
 }
 
-interface RequestOptions{
+interface RequestOptions {
 	// TODO: Need to determine the full collection of what these will be
 }
 
-interface ClientResponse<T> extends Promise<T>{
+interface ClientResponse<T> extends Promise<T> {
+	fetch: (url: string, options: RequestOptions) => void;
 	next: () => ClientResponse<T>;
 }
