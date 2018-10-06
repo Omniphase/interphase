@@ -1,6 +1,6 @@
 import { fetch } from 'cross-fetch';
 
-class ClientResponse implements ClientResponse {
+class ClientResponse implements IClientResponse<any> {
   callbacks: Array<Function>;
   error: any;
   loading: boolean;
@@ -11,7 +11,7 @@ class ClientResponse implements ClientResponse {
     this.callbacks = [];
   }
 
-  private fetch(url: string, options: FetchOptions) {
+  fetch(url: string, options: RequestOptions) {
     this.promise = fetch(url, options).then((response: any) => {
       this.loading = false;
       this.response = response;
@@ -53,15 +53,6 @@ class ClientResponse implements ClientResponse {
     // Add the users `catch` call onto the promise and save the result then wrap it and return a new ClientResponse
     const retVal = this.promise.catch(callback);
     return ClientResponse.createClientResponse(retVal);
-  }
-
-  next(callback: Function) {
-    this.callbacks.push(callback);
-
-    // Call the callback immediately to provide a loading indication
-    const retVal = callback({ loading: this.loading, error: this.error, response: this.response })
-
-    return CilentResponse.createClientResponse(retVal);
   }
 
   then(callback: Function) {

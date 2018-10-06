@@ -1,9 +1,9 @@
 interface Client {
-	delete(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
-	get(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
-	patch(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
-	post(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
-	put(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any>;
+	delete(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientResponse<any>;
+	get(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientResponse<any>;
+	patch(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientResponse<any>;
+	post(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientResponse<any>;
+	put(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientResponse<any>;
 }
 
 interface RequestData {
@@ -16,7 +16,8 @@ interface RequestOptions {
 	// TODO: Need to determine the full collection of what these will be
 }
 
-interface ClientResponse<T> extends Promise<T> {
+interface IClientResponse<T> extends Promise<T> {
 	fetch: (url: string, options: RequestOptions) => void;
-	next: () => ClientResponse<T>;
+	then: (callback: Function) => any;
+	catch: (callback: Function) => any;
 }
