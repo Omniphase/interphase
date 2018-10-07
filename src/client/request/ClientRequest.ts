@@ -1,6 +1,7 @@
 import { fetch } from 'cross-fetch';
+import { IClientRequest, RequestOptions } from './IClientRequest';
 
-class ClientResponse implements IClientResponse<any> {
+class ClientRequest implements IClientRequest<any> {
   callbacks: Array<Function>;
   error: any;
   loading: boolean;
@@ -41,7 +42,7 @@ class ClientResponse implements IClientResponse<any> {
     if (args instanceof Promise) {
       // TODO: Wrap promise in ClientResponse 
     }
-    else if (args instanceof ClientResponse) {
+    else if (args instanceof ClientRequest) {
       // TODO: Build new ClientResponse
     }
     else {
@@ -52,14 +53,14 @@ class ClientResponse implements IClientResponse<any> {
   catch(callback: Function) {
     // Add the users `catch` call onto the promise and save the result then wrap it and return a new ClientResponse
     const retVal = this.promise.catch(callback);
-    return ClientResponse.createClientResponse(retVal);
+    return ClientRequest.createClientResponse(retVal);
   }
 
   then(callback: Function) {
     // Add the users `then` call onto the promise and save the result then wrap it and return a new ClientResponse
     const retVal = this.promise.then(callback);
-    return ClientResponse.createClientResponse(retVal);
+    return ClientRequest.createClientResponse(retVal);
   }
 }
 
-export default ClientResponse;
+export default ClientRequest;

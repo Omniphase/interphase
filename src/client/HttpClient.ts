@@ -1,26 +1,31 @@
-import ClientResponse from './ClientResponse';
+import { parseOptions, getEndpointFromPathname } from './../utils';
+import { HttpVerbs, Client } from './Client';
+import { Endpoint } from './../endpoint/Endpoint';
+import ClientResponse from './request/ClientRequest';
+import { RequestData } from './request/IClientRequest';
+import { RequestOptions } from 'https';
 
 class HttpClient implements Client {
 
   private _interphase_fetch(verb: HttpVerbs, pathName: string, requestData: RequestData, overrideOptions: RequestOptions): ClientResponse {
     const endpoint: Endpoint = getEndpointFromPathname(pathName);
-    const { uri, requestOptions } = endpoint;
-    const options = parseOptions({
-      ...requestOptions,
+    const { uri, options } = endpoint;
+    const requestOptions = parseOptions({
+      ...options,
       ...overrideOptions,
     });
 
     const clientResponse: ClientResponse = new ClientResponse();
 
     clientResponse.fetch(uri, {
-      ...options,
+      ...requestOptions,
       method: verb,
     });
 
     return clientResponse
   }
 
-  delete(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse<any> {
+  delete(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse {
     return this._interphase_fetch(HttpVerbs.DELETE, pathName, requestData, requestOptions);
   }
   get(pathName: string, requestData: RequestData, requestOptions: RequestOptions): ClientResponse {
