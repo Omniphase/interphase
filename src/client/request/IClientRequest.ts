@@ -17,7 +17,7 @@ export interface RequestOptions {
 }
 
 
-export interface IClientRequest<T> extends Promise<T> {
+export interface IClientRequest extends Promise<any> {
   fetch: (url: string, options: RequestOptions) => void;
   then: (callback: Function) => any;
   catch: (callback: Function) => any;

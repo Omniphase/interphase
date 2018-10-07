@@ -6,13 +6,13 @@ import { BodyType, HttpVerbs } from './client/Client';
  * Takes client options and parses them into cross-fetch options
  */
 export const parseOptions = (options: RequestOptions): Partial<HttpOptions> => {
+  // FIXME: placeholder for now to get the basic implementation of the client building
   return {
     method: HttpVerbs.GET,
     body: BodyType.STRING,
     headers: {},
     credentials: "omit",
   }
-
 }
 
 /**
@@ -20,6 +20,7 @@ export const parseOptions = (options: RequestOptions): Partial<HttpOptions> => {
  */
 
 export const getEndpointFromPathname = (pathName: string): Endpoint => {
+  // FIXME: placeholder for now to get the basic implementation of the client building
   return {
     uri: "https://lol",
     name: "name",

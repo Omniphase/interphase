@@ -19,9 +19,9 @@ export enum BodyType {
 }
 
 export interface Client {
-  delete(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest<any>;
-  get(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest<any>;
-  patch(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest<any>;
-  post(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest<any>;
-  put(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest<any>;
+  delete(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest;
+  get(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest;
+  patch(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest;
+  post(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest;
+  put(pathName: string, requestData: RequestData, requestOptions: RequestOptions): IClientRequest;
 }
