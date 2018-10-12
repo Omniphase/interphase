@@ -1,6 +1,6 @@
 {
   "awsomeTypescriptLoaderOptions": {
-    "useCache": true,
+    "useCache": true
   },
   "compilerOptions": {
     "allowJs": false,
@@ -10,7 +10,7 @@
     "sourceMap": true,
     "target": "es5",
     "noUnusedLocals": true,
-    "declaration": true,
+    "declaration": true
   },
   "exclude": [
     "node_modules",

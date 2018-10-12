@@ -1,0 +1,20 @@
+{
+	"extends": ["tslint-config-prettier"],
+	"rules": {
+		"prefer-object-spread": true,
+		"jsdoc-format": true,
+		"align": true,
+		"arrow-parens": true,
+		"arrow-return-shorthand": true,
+		"comment-format": [true, "check-space"],
+		"no-consecutive-blank-lines": true,
+		"ordered-imports": [
+			true,
+			{
+				"import-sources-order": "lowercase-last",
+				"named-imports-order": "lowercase-first"
+			}
+		],
+		"semicolon": [true, "always"]
+	}
+}
